@@ -1,7 +1,7 @@
 import binascii
 
-plaintext = "jackson" #raw_input("Enter message: ")
-key = "boat"
+plaintext = raw_input("Enter message: ")
+key = raw_input("Enter key: ")
 
 plaintextArray = []
 plaintextvalues = []
@@ -14,11 +14,9 @@ for letter in plaintext:
 for item in plaintextArray:
     plaintextvalues.append(int(item,2))
 
-print plaintextvalues
 
 keyArray = []
 threekeyArray = []
-
 keyValues=[]
 
 #turns binary into an array
@@ -44,7 +42,38 @@ for array in threekeyArray:
     keyValues.append(total)
 
 
-print(keyValues)
-
 keylength = len(key)
 plaintextlength = len(plaintext)
+
+cipherArray = []
+keycounter = 0
+plaintextcounter = 0
+
+#gives us the ciphertext
+for i in plaintextvalues:
+    while plaintextcounter < plaintextlength:
+        popo = plaintextvalues[plaintextcounter]
+        if keycounter >= keylength:
+            keycounter = 0
+        j = keyValues[keycounter]
+        j = int(j)
+        keycounter += 1
+        plaintextcounter += 1
+        print (popo ," and ", j)
+        cipherArray.append(popo + j - 19)
+
+for i in cipherArray:
+    i = int(i)
+
+
+#prints the ciphertext
+cipherString = ""
+for char in cipherArray:
+    if char < 32:
+        char += 32
+        char = chr(char)
+        cipherString += ("abcde%s" %char)
+    else:
+        cipherString += chr(char)
+
+print cipherString
