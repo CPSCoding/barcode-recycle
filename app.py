@@ -59,7 +59,6 @@ for i in plaintextvalues:
         j = int(j)
         keycounter += 1
         plaintextcounter += 1
-        print (popo ," and ", j)
         cipherArray.append(popo + j - 19)
 
 for i in cipherArray:
@@ -76,4 +75,4 @@ for char in cipherArray:
     else:
         cipherString += chr(char)
 
-print cipherString
+print ("Ciphertext: %s" %cipherString)
