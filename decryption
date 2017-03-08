@@ -1,0 +1,15 @@
+import binascii
+
+ciphertext = 'b' #raw_input("Enter ciphertext: ")
+key = 'j' #raw_input("Enter key: ")
+
+ciphertextArray = []
+ciphertextValues = []
+
+#convert ciphertext to binary
+for letter in ciphertext:
+    ciphertextArray.append(bin(int(binascii.hexlify(letter), 16)))
+
+#converts ciphertext to ascii
+for item in ciphertextArray:
+    ciphertextValues.append(int(item,2))
