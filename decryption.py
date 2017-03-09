@@ -7,6 +7,21 @@ key = 'j' #raw_input("Enter key: ")
 ciphertextArray = []
 ciphertextValues = []
 
+
+#array of indexs in string that have "abcde" one that changes is +5
+firstarray = [m.start() for m in re.finditer('abcde', ciphertext)]
+secondarray=[]
+for index in firstarray:
+    secondarray.append(index + 5)
+
+print secondarray
+
+for index in secondarray:
+    letter = ciphertext[index]
+    print int(bin(int(binascii.hexlify(letter), 16)),2)
+
+
+
 #convert ciphertext to binary
 for letter in ciphertext:
     ciphertextArray.append(bin(int(binascii.hexlify(letter), 16)))
@@ -30,6 +45,7 @@ for char in ciphertext:
         #if ciphertext[ciphertext.index(char + 1)] == "b":
         #    print "success" '''
 
+
 #array of indexs in string that have "abcde" one that changes is +5
 firstarray = [m.start() for m in re.finditer('abcde', ciphertext)]
 secondarray=[]
@@ -37,3 +53,4 @@ for index in firstarray:
     secondarray.append(index + 5)
 
 print secondarray
+
